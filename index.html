@@ -130,19 +130,35 @@ onAuthStateChanged(auth, user => {
 /* === RESET === */
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --g:#1fa84a;--gd:#167a35;--gp:#e8f5ec;--tx:#111827;--mu:#6b7280;
-  --bd:#e5e7eb;--bg:#f9fafb;--wr:#f59e0b;--er:#ef4444;--bl:#2563eb;
-  font-family:'DM Sans',system-ui,sans-serif;
-  font-size:15px;  /* BASE FONT SIZE AUMENTADO */
+  /* === ACCENT AZUL (color principal — reemplaza --g verde) === */
+  --g:#2563eb;--gd:#1d4ed8;--gp:#dbeafe;
+  /* === NAVY === */
+  --nv:#2b3a52;--nv2:#3d4f6b;--nv3:#4a5e80;
+  /* === GOLD === */
+  --wr:#f59e0b;--wn:#d97706;--wnL:#fef3c7;
+  /* === SEMAFORO === */
+  --ok:#059669;--okL:#d1fae5;--er:#dc2626;--erL:#fee2e2;
+  /* === FONDOS === */
+  --bg:#f0f4f8;--bg2:#ffffff;--bg3:#e8eef5;
+  /* === BORDES === */
+  --bd:#c8d4e8;--bd2:#a0b4d0;
+  /* === TIPOGRAFIA === */
+  --tx:#0f1923;--mu:#3d5068;--tx3:#6b85a0;
+  /* === LAYOUT === */
+  --sw:252px;--hh:63px;
+  /* === COMPAT === */
+  --bl:#2563eb;--gp:#dbeafe;
+  font-family:'Segoe UI','Helvetica Neue',Arial,sans-serif;
+  font-size:15px;
 }
-html,body{height:100%;overflow:hidden;background:#f3f4f6}
+html,body{height:100%;overflow:hidden;background:var(--bg)}
 .app{display:flex;flex-direction:column;height:100vh;background:#fff}
 
 /* === TOPBAR === */
-.topbar{height:50px;background:#fff;border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;padding:0 18px;flex-shrink:0}
+.topbar{height:50px;background:var(--bg3);border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;padding:0 18px;flex-shrink:0}
 .tb-left{display:flex;align-items:center;gap:10px}
-.tb-logo{width:34px;height:34px;border-radius:7px;overflow:hidden;border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;background:#fff}
-.tb-logo img{width:32px;height:32px;object-fit:contain}
+.tb-logo{display:flex;align-items:center;justify-content:center;background:transparent;border:none}
+.tb-logo img{height:38px;width:auto;object-fit:contain}
 .tb-title{font-size:15px;font-weight:600;line-height:1.1}
 .tb-sub{font-size:11px;color:var(--mu)}
 .tb-right{display:flex;align-items:center;gap:8px}
@@ -150,13 +166,13 @@ html,body{height:100%;overflow:hidden;background:#f3f4f6}
 .tb-avatar{width:32px;height:32px;border-radius:50%;background:var(--g);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600}
 
 /* === NAV === */
-.nav-wrap{background:#fff;border-bottom:1px solid var(--bd);flex-shrink:0;padding:0 18px}
+.nav-wrap{background:var(--nv2);border-bottom:1px solid var(--nv);flex-shrink:0;padding:0 18px}
 .nav-row{display:flex;justify-content:center;gap:2px}
 .nav-row:first-child{padding-top:5px}
-.ntab{display:flex;align-items:center;gap:7px;padding:8px 17px;font-size:13.5px;font-weight:500;color:var(--mu);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;background:none;border-top:none;border-left:none;border-right:none;font-family:inherit;white-space:nowrap;transition:all 0.1s;border-radius:6px 6px 0 0}
+.ntab{display:flex;align-items:center;gap:7px;padding:8px 17px;font-size:13.5px;font-weight:700;color:rgba(255,255,255,0.75);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;background:none;border-top:none;border-left:none;border-right:none;font-family:inherit;white-space:nowrap;transition:all 0.1s;border-radius:6px 6px 0 0}
 .ntab i{font-size:16px}
-.ntab:hover{color:var(--tx);background:var(--gp)}
-.ntab.active{color:var(--g);border-bottom-color:var(--g);font-weight:600;background:var(--gp)}
+.ntab:hover{color:#fff;background:rgba(255,255,255,0.12)}
+.ntab.active{color:#fff;border-bottom-color:#fff;font-weight:700;background:rgba(255,255,255,0.15)}
 
 /* === LAYOUT === */
 .body{display:flex;flex:1;overflow:hidden}
@@ -195,7 +211,7 @@ html,body{height:100%;overflow:hidden;background:#f3f4f6}
 .fg{display:flex;flex-direction:column;gap:4px}.fgf{grid-column:1/-1}
 .fl{font-size:11px;font-weight:500;color:var(--mu);text-transform:uppercase;letter-spacing:0.3px}
 .fi{height:34px;border:1px solid var(--bd);border-radius:7px;padding:0 11px;font-size:13.5px;color:var(--tx);background:#fff;font-family:inherit;outline:none}
-.fi:focus{border-color:var(--g);box-shadow:0 0 0 2px rgba(31,168,74,0.1)}
+.fi:focus{border-color:var(--g);box-shadow:0 0 0 2px rgba(37,99,235,0.15)}
 .firo{background:var(--bg);color:var(--mu)}
 select.fi{cursor:pointer}
 textarea.fi{height:64px;padding:9px 11px;resize:none;line-height:1.5}
@@ -217,15 +233,15 @@ textarea.fi{height:64px;padding:9px 11px;resize:none;line-height:1.5}
 .tw{overflow-x:auto}
 table{width:100%;border-collapse:collapse;font-size:13px}
 th{background:var(--bg);color:var(--mu);font-weight:600;font-size:11px;letter-spacing:0.4px;text-transform:uppercase;padding:7px 10px;text-align:left;border-bottom:1px solid var(--bd);white-space:nowrap}
-td{padding:8px 10px;border-bottom:1px solid #f3f4f6;vertical-align:middle}
-tr:hover td{background:#fafafa}
+td{padding:8px 10px;border-bottom:1px solid var(--bd);vertical-align:middle}
+tr:hover td{background:var(--bg)}
 tr:last-child td{border-bottom:none}
 
 /* === BADGES === */
 .b{display:inline-flex;align-items:center;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600}
-.bg{background:#dcfce7;color:#166534}.br{background:#fee2e2;color:#991b1b}
+.bg{background:var(--okL);color:var(--ok)}.br{background:#fee2e2;color:#991b1b}
 .bw{background:#fef3c7;color:#92400e}.bb{background:#dbeafe;color:#1e40af}
-.bgr{background:#f3f4f6;color:#374151}.bp2{background:#ede9fe;color:#4c1d95}
+.bgr{background:var(--bg3);color:var(--tx2)}.bp2{background:#ede9fe;color:#4c1d95}
 
 /* === KPIs === */
 .kstrip{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:13px}
@@ -266,13 +282,13 @@ tr:last-child td{border-bottom:none}
 .exp-doc-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .exp-doc-icon i{font-size:17px}
 .edi-done{background:var(--gp);color:var(--g)}
-.edi-pending{background:#f3f4f6;color:var(--mu)}
+.edi-pending{background:var(--bg3);color:var(--mu)}
 .exp-doc-info{flex:1;min-width:0}
 .exp-doc-name{font-size:13px;font-weight:500;color:var(--tx);display:flex;align-items:center;gap:7px;flex-wrap:wrap}
 .exp-doc-meta{font-size:11px;color:var(--g);margin-top:2px;display:flex;align-items:center;gap:5px}
 .exp-doc-actions{display:flex;gap:5px;flex-shrink:0}
 .exp-oblig{font-size:10px;font-weight:600;padding:1px 7px;border-radius:4px;background:#fee2e2;color:var(--er)}
-.exp-opc{font-size:10px;font-weight:600;padding:1px 7px;border-radius:4px;background:#f3f4f6;color:var(--mu)}
+.exp-opc{font-size:10px;font-weight:600;padding:1px 7px;border-radius:4px;background:var(--bg3);color:var(--mu)}
 @keyframes spin{to{transform:rotate(360deg)}}
 
 /* ===== RICH KPI CARDS ===== */
@@ -318,7 +334,7 @@ tr:last-child td{border-bottom:none}
 /* ===== PROV BAR ===== */
 .prov-bar-row{display:flex;align-items:center;gap:8px;margin-bottom:7px}
 .prov-bar-name{font-size:11.5px;color:var(--tx);width:120px;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.prov-bar-wrap{flex:1;background:#f3f4f6;border-radius:3px;height:7px;overflow:hidden}
+.prov-bar-wrap{flex:1;background:var(--bg3);border-radius:3px;height:7px;overflow:hidden}
 .prov-bar-fill{height:100%;background:var(--g);border-radius:3px;transition:width 0.5s}
 .prov-bar-cnt{font-size:11px;font-weight:600;color:var(--tx);width:20px;text-align:right}
 
@@ -357,7 +373,7 @@ tr:last-child td{border-bottom:none}
 /* ── LOGIN SCREEN ─────────────────────────────────────────────────────────── */
 #login-screen{
   position:fixed;inset:0;
-  background:linear-gradient(135deg,#0d1f5c 0%,#12266b 50%,#1a3080 100%);
+  background:linear-gradient(135deg,var(--nv) 0%,var(--nv2) 50%,var(--nv3) 100%);
   display:flex;align-items:center;justify-content:center;z-index:9999;flex-direction:column;gap:0;
 }
 .login-card{
@@ -368,7 +384,7 @@ tr:last-child td{border-bottom:none}
 }
 .login-logo{width:200px;height:auto;object-fit:contain;margin-bottom:4px;background:transparent;padding:0;border-radius:0;filter:drop-shadow(0 2px 8px rgba(0,0,0,0.4));}
 .login-title{font-size:22px;font-weight:800;color:#ffffff;margin-bottom:4px;text-align:center;letter-spacing:-0.3px;}
-.login-sub{font-size:12px;color:#ffd04f;margin-bottom:28px;text-align:center;font-weight:500;}
+.login-sub{font-size:12px;color:var(--wr);margin-bottom:28px;text-align:center;font-weight:500;}
 .login-field{width:100%;margin-bottom:14px}
 .login-field label{display:block;font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);margin-bottom:5px}
 .login-field input{
@@ -377,14 +393,14 @@ tr:last-child td{border-bottom:none}
   background:rgba(255,255,255,0.1);color:#ffffff;
 }
 .login-field input::placeholder{color:rgba(255,255,255,0.4)}
-.login-field input:focus{border-color:#ffd04f;box-shadow:0 0 0 3px rgba(255,208,79,0.2)}
+.login-field input:focus{border-color:var(--wr);box-shadow:0 0 0 3px rgba(245,158,11,0.2)}
 .login-btn{
-  width:100%;height:46px;background:#2563ea;color:#fff;border:none;border-radius:9px;
+  width:100%;height:46px;background:var(--g);color:#fff;border:none;border-radius:9px;
   font-size:15px;font-weight:700;cursor:pointer;margin-top:6px;transition:background 0.15s;
   display:flex;align-items:center;justify-content:center;gap:8px;font-family:inherit;
   letter-spacing:0.2px;
 }
-.login-btn:hover{background:#1d4ed8}
+.login-btn:hover{background:var(--gd)}
 .login-btn:disabled{background:#4b5563;cursor:not-allowed}
 .login-err{color:#fca5a5;font-size:12px;text-align:center;margin-top:10px;min-height:18px}
 .login-footer{font-size:11px;color:rgba(255,255,255,0.4);margin-top:20px;text-align:center}
@@ -433,11 +449,11 @@ tr:last-child td{border-bottom:none}
     </div>
   </div>
   <div class="tb-right">
-    <div style="display:flex;align-items:center;gap:5px;padding:4px 10px;border:1px solid var(--g);border-radius:7px;background:var(--gp);font-size:12px;font-weight:600;color:var(--g);cursor:pointer" id="ciclo-badge-top" onclick="go('config',document.querySelector('[data-pg=config]'))" title="Ciclo activo — clic para ir a Configuración">
+    <div style="display:flex;align-items:center;gap:5px;padding:4px 10px;border:1px solid var(--g);border-radius:7px;background:var(--gp);font-size:12px;font-weight:600;color:var(--g);cursor:pointer" id="ciclo-badge-top" onclick="go('config',document.querySelector('[data-pg=config]'))" title="Período activo — clic para ir a Configuración">
       <i class="ti ti-calendar-stats" style="font-size:13px"></i>
       <span id="ciclo-lbl-top">2025-2026</span>
     </div>
-    <div class="plant-sel" onclick="togglePlantMenu()" id="pselbtn"><i class="ti ti-building"></i> <span id="plant-lbl">Planta 1</span> <i class="ti ti-chevron-down"></i></div>
+    <div class="plant-sel" onclick="togglePlantMenu()" id="pselbtn"><i class="ti ti-building"></i> <span id="plant-lbl">Centro de Trabajo 1</span> <i class="ti ti-chevron-down"></i></div>
     <div class="plant-sel" style="border:none;background:var(--bg);cursor:pointer" onclick="goMonitor()"><i class="ti ti-bell"></i><span class="b br" style="font-size:10px;padding:0 5px" id="alrt-cnt">0</span></div>
     <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--mu)">
       <i class="ti ti-user-circle" style="font-size:16px"></i>
@@ -469,15 +485,40 @@ tr:last-child td{border-bottom:none}
 <div id="pg-monitor" class="pg active">
   <div id="sub-resumen" class="sub active">
   <div class="ph">
-    <div><div class="ptitle">Panel General — Tablero de Control</div><div class="psub" id="mon-sub">Ciclo 2025-2026</div></div>
+    <div><div class="ptitle">Panel General — Tablero de Control</div><div class="psub" id="mon-sub">Resumen general de contratos</div></div>
     <div style="display:flex;gap:7px;align-items:center">
-      <div style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--mu);font-weight:500">
-        <i class="ti ti-calendar-stats" style="font-size:13px;color:var(--g)"></i>
-        <span>Ciclo:</span>
-        <select style="height:28px;border:1.5px solid var(--g);border-radius:6px;padding:0 9px;font-size:12px;font-family:inherit;color:var(--g);font-weight:600;background:var(--gp)" id="mon-ciclo-fil" onchange="cicloConsulta=this.value;loadMonitor()"></select>
-      </div>
-      <select style="height:28px;border:1px solid var(--bd);border-radius:6px;padding:0 9px;font-size:12px;font-family:inherit" id="mon-planta-fil" onchange="loadMonitor()"><option value="">Todas las Plantas</option><option>Planta 1</option><option>Planta 2</option><option>Planta 3</option></select>
-      <select style="height:28px;border:1px solid var(--bd);border-radius:6px;padding:0 9px;font-size:12px;font-family:inherit" id="mon-tipo-fil" onchange="loadMonitor()"><option value="">Todos los Tipos</option><option>RENTA DE EQUIPOS</option><option>INMUEBLES</option><option>SERVICIOS</option><option>SUMINISTRO</option><option>TRASLADO DE PERSONAL</option></select>
+      <select style="height:28px;border:1px solid var(--bd);border-radius:6px;padding:0 9px;font-size:12px;font-family:inherit" id="mon-planta-fil" onchange="loadMonitor()"><option value="">Todas las Áreas</option><option>Centro 1</option><option>Centro 2</option><option>Centro 3</option></select>
+      <select style="height:28px;border:1px solid var(--bd);border-radius:6px;padding:0 9px;font-size:12px;font-family:inherit" id="mon-tipo-fil" onchange="loadMonitor()">
+        <option value="">Todos los Tipos</option>
+        <optgroup label="Laboral">
+          <option>LABORAL</option>
+        </optgroup>
+        <optgroup label="Comercial">
+          <option>COMERCIAL</option>
+          <option>SUMINISTRO</option>
+        </optgroup>
+        <optgroup label="Arrendamiento">
+          <option>RENTA DE EQUIPOS</option>
+          <option>INMUEBLES</option>
+        </optgroup>
+        <optgroup label="Propiedad Intelectual">
+          <option>CONFIDENCIALIDAD</option>
+          <option>PROP. INTELECTUAL</option>
+        </optgroup>
+        <optgroup label="Financiero">
+          <option>FINANCIERO</option>
+        </optgroup>
+        <optgroup label="Servicios">
+          <option>SERVICIOS</option>
+          <option>TRASLADO DE PERSONAL</option>
+        </optgroup>
+      </select>
+      <select style="height:28px;border:1px solid var(--bd);border-radius:6px;padding:0 9px;font-size:12px;font-family:inherit" id="mon-estado-fil" onchange="loadMonitor()">
+        <option value="">Todos los Estados</option>
+        <option value="vigente">Vigentes</option>
+        <option value="vence_pronto">Vence Pronto</option>
+        <option value="vencido">Vencidos</option>
+      </select>
       <button class="btn bo bsm" onclick="syncFromFirestore()"><i class="ti ti-refresh"></i> Actualizar</button>
     </div>
   </div>
@@ -596,7 +637,7 @@ tr:last-child td{border-bottom:none}
     <div class="pb"><div class="itabs"><button class="itab active" onclick="itab(this,'av-vc')">Vencidos</button><button class="itab" onclick="itab(this,'av-pv')">Por Vencer 30d</button></div><div id="av-vc"></div><div id="av-pv" style="display:none"></div></div>
   </div>
   <div id="sub-proyectos" class="sub">
-    <div class="ph"><div><div class="ptitle">Resumen por Proyecto</div><div class="psub">Ciclo activo · Planta Principal</div></div><div style="display:flex;gap:6px"><button class="btn bo bsm" onclick="expRep('proyectos_pdf')"><i class="ti ti-file-type-pdf"></i> PDF</button><button class="btn bo bsm" onclick="expRep('proyectos_xlsx')"><i class="ti ti-table-export"></i> Excel</button></div></div>
+    <div class="ph"><div><div class="ptitle">Resumen por Proyecto</div><div class="psub">Período activo · Centro de Trabajo principal</div></div><div style="display:flex;gap:6px"><button class="btn bo bsm" onclick="expRep('proyectos_pdf')"><i class="ti ti-file-type-pdf"></i> PDF</button><button class="btn bo bsm" onclick="expRep('proyectos_xlsx')"><i class="ti ti-table-export"></i> Excel</button></div></div>
     <div class="pb"><div class="tw"><table><thead><tr><th>Proyecto</th><th>Vigentes</th><th>Vencidos</th><th>Por Vencer</th><th style="text-align:right">MXN</th><th style="text-align:right">USD</th></tr></thead><tbody id="proj-tb"></tbody></table></div></div>
   </div>
 </div>
@@ -613,14 +654,14 @@ tr:last-child td{border-bottom:none}
   </div>
 
   <div id="sub-datos" class="sub">
-    <div class="ph"><div><div class="ptitle">Datos del Contrato</div><div class="psub">Paso 2 — Sin membrete (contrato en hoja en blanco)</div></div><button class="btn bo bsm" onclick="goSub('tipo')"><i class="ti ti-arrow-left"></i> Atrás</button></div>
+    <div class="ph"><div><div class="ptitle" id="datos-title">Datos del Contrato</div><div class="psub" id="datos-sub">Paso 2 — completa los datos del contrato</div></div><button class="btn bo bsm" onclick="goSub('tipo')"><i class="ti ti-arrow-left"></i> Atrás</button></div>
     <div class="pb">
       <div class="steps"><div class="step done">① Tipo</div><div class="step on">② Datos</div><div class="step">③ Vista Previa</div></div>
-      <div class="itabs">
-        <button class="itab active" onclick="itab(this,'td-arr')"><i class="ti ti-user"></i> Arrendador</button>
-        <button class="itab" onclick="itab(this,'td-arrendataria')"><i class="ti ti-building"></i> Arrendataria</button>
-        <button class="itab" onclick="itab(this,'td-bien')"><i class="ti ti-tractor"></i> Bien / Objeto</button>
-        <button class="itab" onclick="itab(this,'td-eco')"><i class="ti ti-currency-peso"></i> Condiciones</button>
+      <div class="itabs" id="datos-tabs">
+        <button class="itab active" onclick="itab(this,'td-arr')"><i class="ti ti-user"></i> <span id="tab-arr-lbl">Arrendador</span></button>
+        <button class="itab" onclick="itab(this,'td-arrendataria')"><i class="ti ti-building"></i> <span id="tab-arrendataria-lbl">Arrendataria</span></button>
+        <button class="itab" onclick="itab(this,'td-bien')"><i class="ti ti-file-text"></i> <span id="tab-bien-lbl">Bien / Objeto</span></button>
+        <button class="itab" onclick="itab(this,'td-eco')"><i class="ti ti-currency-peso"></i> <span id="tab-eco-lbl">Condiciones</span></button>
         <button class="itab" onclick="itab(this,'td-mach')"><i class="ti ti-template"></i> Machote Personalizado</button>
       </div>
 
@@ -632,17 +673,17 @@ tr:last-child td{border-bottom:none}
         </div>
         <div class="fr">
           <div class="fg">
-            <label class="fl">RFC Arrendador <span style="font-size:10px;color:var(--g);text-transform:none;letter-spacing:0">— escribe para autocompletar del catálogo</span></label>
+            <label class="fl"><span id="lbl-rfc">RFC Arrendador</span> <span style="font-size:10px;color:var(--g);text-transform:none;letter-spacing:0">— escribe para autocompletar del catálogo</span></label>
             <input class="fi" id="t-rfc" placeholder="RFC con homoclave" oninput="autocompletarArrendador(this.value)">
           </div>
           <div class="fg"><label class="fl">Tipo de Persona</label><select class="fi" id="t-persona" onchange="toggleRL()"><option value="fisica">Persona Física</option><option value="moral">Persona Moral</option></select></div>
         </div>
         <div class="fr">
-          <div class="fg"><label class="fl">Nombre del Arrendador</label><input class="fi" id="t-prov" placeholder="Como aparece en el contrato"></div>
-          <div class="fg"><label class="fl">Domicilio del Arrendador</label><input class="fi" id="t-dom" placeholder="Calle, No., Col., C.P., Municipio"></div>
+          <div class="fg"><label class="fl" id="lbl-prov">Nombre del Arrendador</label><input class="fi" id="t-prov" placeholder="Como aparece en el contrato"></div>
+          <div class="fg"><label class="fl" id="lbl-dom">Domicilio del Arrendador</label><input class="fi" id="t-dom" placeholder="Calle, No., Col., C.P., Municipio"></div>
         </div>
         <div class="fr" id="grp-rl" style="display:none">
-          <div class="fg fgf"><label class="fl">Representante Legal del Arrendador (Persona Moral)</label><input class="fi" id="t-repleg"></div>
+          <div class="fg fgf"><label class="fl" id="lbl-repleg">Representante Legal (Persona Moral)</label><input class="fi" id="t-repleg"></div>
         </div>
       </div>
 
@@ -650,17 +691,17 @@ tr:last-child td{border-bottom:none}
       <div id="td-arrendataria" style="display:none">
         <div style="background:var(--gp);border-radius:7px;padding:9px 13px;font-size:12px;color:var(--g);border-left:3px solid var(--g);margin-bottom:10px;display:flex;align-items:center;gap:8px">
           <i class="ti ti-bolt" style="font-size:14px"></i>
-          <span>Escribe el <strong>RFC</strong> de la arrendataria para autocompletar sus datos del catálogo.</span>
+          <span id="arr2-banner-txt">Escribe el <strong>RFC</strong> de la arrendataria para autocompletar sus datos del catálogo.</span>
         </div>
         <div class="fr">
           <div class="fg">
-            <label class="fl">RFC Arrendataria <span style="font-size:10px;color:var(--g);text-transform:none;letter-spacing:0">— escribe para autocompletar</span></label>
+            <label class="fl"><span id="lbl-arr-rfc">RFC Arrendataria</span> <span style="font-size:10px;color:var(--g);text-transform:none;letter-spacing:0">— escribe para autocompletar</span></label>
             <input class="fi" id="t-arr-rfc" placeholder="RFC con homoclave" oninput="autocompletarArrendatario(this.value)">
           </div>
-          <div class="fg"><label class="fl">Nombre / Razón Social Arrendataria</label><input class="fi" id="t-arr-nombre" placeholder="Ej: Mi Empresa S.A. de C.V."></div>
+          <div class="fg"><label class="fl" id="lbl-arr-nombre">Nombre / Razón Social Arrendataria</label><input class="fi" id="t-arr-nombre" placeholder="Ej: Mi Empresa S.A. de C.V."></div>
         </div>
         <div class="fr">
-          <div class="fg fgf"><label class="fl">Domicilio de la Arrendataria</label><input class="fi" id="t-arr-dom" placeholder="Calle, No., Col., C.P., Municipio"></div>
+          <div class="fg fgf"><label class="fl" id="lbl-arr-dom">Domicilio de la Arrendataria</label><input class="fi" id="t-arr-dom" placeholder="Calle, No., Col., C.P., Municipio"></div>
         </div>
         <div class="fr">
           <div class="fg"><label class="fl">Representante de la Arrendataria</label><select class="fi" id="t-repps"><option>Representante Legal</option><option>Alfredo Parra</option><option>Javier Barrón Amieva</option><option>Héctor Valencia</option></select></div>
@@ -670,7 +711,7 @@ tr:last-child td{border-bottom:none}
 
       <!-- TAB: BIEN -->
       <div id="td-bien" style="display:none">
-        <div class="fr fr1"><div class="fg fgf"><label class="fl">Descripción Detallada del Bien Arrendado</label><textarea class="fi" id="t-bien" style="height:80px" placeholder="TRACTOR MARCA: ___ MODELO: ___ AÑO: ___ SERIE: ___ MOTOR: ___"></textarea></div></div>
+        <div class="fr fr1"><div class="fg fgf"><label class="fl" id="lbl-bien">Descripción Detallada del Bien Arrendado</label><textarea class="fi" id="t-bien" style="height:80px" id="t-bien-txt" placeholder="Descripción del objeto del contrato..."></textarea></div></div>
         <div class="fr">
           <div class="fg"><label class="fl">Número Económico</label><input class="fi" id="t-numeco" placeholder="RC-001"></div>
           <div class="fg"><label class="fl">Período de Pago</label><select class="fi" id="t-periodo"><option>Semanal</option><option>Quincenal</option><option>Mensual</option><option>Anual</option><option>Por uso / Ha</option></select></div>
@@ -681,7 +722,7 @@ tr:last-child td{border-bottom:none}
       <!-- TAB: CONDICIONES -->
       <div id="td-eco" style="display:none">
         <div style="background:var(--gp);border-radius:7px;padding:9px 13px;font-size:12px;color:var(--g);border-left:3px solid var(--g);margin-bottom:10px;display:flex;align-items:center;justify-content:space-between">
-          <span><i class="ti ti-calendar-stats" style="font-size:14px;vertical-align:-2px"></i> Ciclo: <strong id="eco-ciclo-lbl">—</strong> · Planta: <strong id="eco-planta-lbl">—</strong> — tarifas base cargadas automáticamente. Puedes editarlas para este contrato.</span>
+          <span><i class="ti ti-calendar-stats" style="font-size:14px;vertical-align:-2px"></i> Período: <strong id="eco-ciclo-lbl">—</strong> · Área: <strong id="eco-planta-lbl">—</strong> — tarifas base cargadas automáticamente. Puedes editarlas para este contrato.</span>
         </div>
         <div class="fr">
           <div class="fg"><label class="fl">Tarifa Sin Implementos / Día</label><input class="fi" id="t-tar1" value="$800.00 MXN"></div>
@@ -776,7 +817,13 @@ tr:last-child td{border-bottom:none}
   <div style="padding:8px 14px;border-bottom:1px solid var(--bd);background:#fff;display:flex;gap:7px;flex-wrap:wrap;align-items:center;flex-shrink:0">
     <input style="height:30px;border:1px solid var(--bd);border-radius:6px;padding:0 10px;font-size:13px;width:190px;font-family:inherit;outline:none" id="eq" placeholder="🔍 Proveedor, folio..." oninput="renderExp()">
     <select style="height:30px;border:1.5px solid var(--g);border-radius:6px;padding:0 9px;font-size:13px;font-family:inherit;color:var(--g);font-weight:600;background:var(--gp)" id="ef-ciclo" onchange="renderExp()"></select>
-    <select style="height:30px;border:1px solid var(--bd);border-radius:6px;padding:0 9px;font-size:13px;font-family:inherit" id="eft" onchange="renderExp()"><option value="">Todos los tipos</option><option>RENTA DE EQUIPOS</option><option>INMUEBLES</option><option>SERVICIOS</option><option>SUMINISTRO</option><option>TRASLADO DE PERSONAL</option></select>
+    <select style="height:30px;border:1px solid var(--bd);border-radius:6px;padding:0 9px;font-size:13px;font-family:inherit" id="eft" onchange="renderExp()"><option value="">Todos los Tipos</option>
+        <optgroup label="Laboral"><option>LABORAL</option></optgroup>
+        <optgroup label="Comercial"><option>COMERCIAL</option><option>SUMINISTRO</option></optgroup>
+        <optgroup label="Arrendamiento"><option>RENTA DE EQUIPOS</option><option>INMUEBLES</option></optgroup>
+        <optgroup label="P. Intelectual"><option>CONFIDENCIALIDAD</option><option>PROP. INTELECTUAL</option></optgroup>
+        <optgroup label="Financiero"><option>FINANCIERO</option></optgroup>
+        <optgroup label="Servicios"><option>SERVICIOS</option><option>TRASLADO DE PERSONAL</option></optgroup></select>
     <select style="height:30px;border:1px solid var(--bd);border-radius:6px;padding:0 9px;font-size:13px;font-family:inherit" id="efs" onchange="renderExp()"><option value="">Todos los estados</option><option>VIGENTE</option><option>VENCIDO</option></select>
     <select style="height:30px;border:1px solid var(--bd);border-radius:6px;padding:0 9px;font-size:13px;font-family:inherit" id="efp" onchange="renderExp()"><option value="">Todos los proyectos</option></select>
   </div>
@@ -826,7 +873,7 @@ tr:last-child td{border-bottom:none}
       <div class="card"><div style="padding:14px;text-align:center"><i class="ti ti-file-report" style="font-size:24px;color:var(--g);display:block;margin-bottom:8px"></i><div style="font-size:13px;font-weight:600;margin-bottom:3px">Contratos Vencidos</div><div style="font-size:11.5px;color:var(--mu);margin-bottom:9px">Por renovar con días vencido</div><div style="display:flex;gap:6px;justify-content:center"><button class="btn bo bsm" onclick="expRep('vencidos_pdf')"><i class="ti ti-file-type-pdf"></i> PDF</button><button class="btn bo bsm" onclick="expRep('vencidos_xlsx')"><i class="ti ti-table-export"></i> Excel</button></div></div></div>
       <div class="card"><div style="padding:14px;text-align:center"><i class="ti ti-report-money" style="font-size:24px;color:var(--g);display:block;margin-bottom:8px"></i><div style="font-size:13px;font-weight:600;margin-bottom:3px">Pagos por Proyecto</div><div style="font-size:11.5px;color:var(--mu);margin-bottom:9px">Resumen financiero MXN y USD</div><div style="display:flex;gap:6px;justify-content:center"><button class="btn bo bsm" onclick="expRep('pagos_pdf')"><i class="ti ti-file-type-pdf"></i> PDF</button><button class="btn bo bsm" onclick="expRep('pagos_xlsx')"><i class="ti ti-table-export"></i> Excel</button></div></div></div>
       <div class="card"><div style="padding:14px;text-align:center"><i class="ti ti-calendar-event" style="font-size:24px;color:var(--wr);display:block;margin-bottom:8px"></i><div style="font-size:13px;font-weight:600;margin-bottom:3px">Alertas de Vencimiento</div><div style="font-size:11.5px;color:var(--mu);margin-bottom:9px">Próximos 30 días</div><div style="display:flex;gap:6px;justify-content:center"><button class="btn bo bsm" onclick="expRep('alertas_pdf')"><i class="ti ti-file-type-pdf"></i> PDF</button><button class="btn bo bsm" onclick="expRep('alertas_xlsx')"><i class="ti ti-table-export"></i> Excel</button></div></div></div>
-      <div class="card"><div style="padding:14px;text-align:center"><i class="ti ti-building" style="font-size:24px;color:var(--bl);display:block;margin-bottom:8px"></i><div style="font-size:13px;font-weight:600;margin-bottom:3px">Resumen por Planta</div><div style="font-size:11.5px;color:var(--mu);margin-bottom:9px">Planta 1 / Planta 2 / Planta 3</div><div style="display:flex;gap:6px;justify-content:center"><button class="btn bo bsm" onclick="expRep('planta_pdf')"><i class="ti ti-file-type-pdf"></i> PDF</button><button class="btn bo bsm" onclick="expRep('planta_xlsx')"><i class="ti ti-table-export"></i> Excel</button></div></div></div>
+      <div class="card"><div style="padding:14px;text-align:center"><i class="ti ti-building" style="font-size:24px;color:var(--bl);display:block;margin-bottom:8px"></i><div style="font-size:13px;font-weight:600;margin-bottom:3px">Resumen por Planta</div><div style="font-size:11.5px;color:var(--mu);margin-bottom:9px">Centro 1 / Centro 2 / Centro 3</div><div style="display:flex;gap:6px;justify-content:center"><button class="btn bo bsm" onclick="expRep('planta_pdf')"><i class="ti ti-file-type-pdf"></i> PDF</button><button class="btn bo bsm" onclick="expRep('planta_xlsx')"><i class="ti ti-table-export"></i> Excel</button></div></div></div>
       <div class="card"><div style="padding:14px;text-align:center"><i class="ti ti-users" style="font-size:24px;color:var(--bl);display:block;margin-bottom:8px"></i><div style="font-size:13px;font-weight:600;margin-bottom:3px">Por Proveedor</div><div style="font-size:11.5px;color:var(--mu);margin-bottom:9px">Historial completo</div><div style="display:flex;gap:6px;justify-content:center"><button class="btn bo bsm" onclick="expRep('prov_pdf')"><i class="ti ti-file-type-pdf"></i> PDF</button><button class="btn bo bsm" onclick="expRep('prov_xlsx')"><i class="ti ti-table-export"></i> Excel</button></div></div></div>
       <div class="card"><div style="padding:14px;text-align:center"><i class="ti ti-table-export" style="font-size:24px;color:var(--mu);display:block;margin-bottom:8px"></i><div style="font-size:13px;font-weight:600;margin-bottom:3px">Exportar Base Completa</div><div style="font-size:11.5px;color:var(--mu);margin-bottom:9px">Excel compatible AX</div><div style="display:flex;gap:6px;justify-content:center"><button class="btn bo bsm" onclick="expRep('base_xlsx')"><i class="ti ti-table-export"></i> Excel</button></div></div></div>
     </div>
@@ -840,8 +887,8 @@ tr:last-child td{border-bottom:none}
   <div class="pb">
     <div class="itabs">
       <button class="itab active" onclick="itab(this,'cfg-emp')"><i class="ti ti-building-skyscraper"></i> Empresa</button>
-      <button class="itab" onclick="itab(this,'cfg-plantas')"><i class="ti ti-map-pin"></i> Plantas</button>
-      <button class="itab" onclick="itab(this,'cfg-ciclos')"><i class="ti ti-calendar-stats" style="color:var(--g)"></i> Ciclos Agrícolas</button>
+      <button class="itab" onclick="itab(this,'cfg-plantas')"><i class="ti ti-building-community"></i> Centros de Trabajo</button>
+      <button class="itab" onclick="itab(this,'cfg-ciclos')"><i class="ti ti-calendar-stats" style="color:var(--g)"></i> Períodos / Ejercicios</button>
       <button class="itab" onclick="itab(this,'cfg-arrendadores')"><i class="ti ti-users"></i> Arrendadores</button>
       <button class="itab" onclick="itab(this,'cfg-arrendatarios')"><i class="ti ti-building-community"></i> Arrendatarios</button>
       <button class="itab" onclick="itab(this,'cfg-users')"><i class="ti ti-shield-lock"></i> Usuarios</button>
@@ -867,8 +914,8 @@ tr:last-child td{border-bottom:none}
     <div id="cfg-ciclos" style="display:none">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:11px">
         <div>
-          <div style="font-size:13px;font-weight:600">Ciclos Agrícolas</div>
-          <div style="font-size:11.5px;color:var(--mu)">El ciclo marcado con ★ es el ciclo activo. Todos los contratos nuevos se asignarán a él automáticamente.</div>
+          <div style="font-size:13px;font-weight:600">Períodos / Ejercicios</div>
+          <div style="font-size:11.5px;color:var(--mu)">El período marcado con ★ es el activo. Todos los contratos nuevos se asignarán a él automáticamente.</div>
         </div>
         <button class="btn bp bsm" onclick="addCiclo()"><i class="ti ti-plus"></i> Nuevo Ciclo</button>
       </div>
@@ -907,13 +954,13 @@ tr:last-child td{border-bottom:none}
         <div style="display:flex;align-items:center;gap:10px">
           <span style="font-size:13px;color:var(--mu)">Tarifas por actividad · Costo / Ha o / Día (MXN)</span>
           <div style="display:flex;align-items:center;gap:5px">
-            <label style="font-size:12px;font-weight:500;color:var(--mu)">Ciclo:</label>
+            <label style="font-size:12px;font-weight:500;color:var(--mu)">Período:</label>
             <select class="fi" style="height:30px;font-size:12px;width:120px" id="tar-ciclo-sel" onchange="renderTarifasTab()"></select>
           </div>
           <div style="display:flex;align-items:center;gap:5px">
-            <label style="font-size:12px;font-weight:500;color:var(--mu)">Planta:</label>
+            <label style="font-size:12px;font-weight:500;color:var(--mu)">Centro:</label>
             <select class="fi" style="height:30px;font-size:12px;width:120px" id="tar-planta-sel" onchange="renderTarifasTab()">
-              <option>Planta 1</option><option>Planta 2</option><option>Planta 3</option>
+              <option>Centro 1</option><option>Centro 2</option><option>Centro 3</option>
             </select>
           </div>
         </div>
@@ -969,7 +1016,7 @@ tr:last-child td{border-bottom:none}
 <div style="padding:15px"><input type="hidden" id="nu-id">
 <div class="fr fr1"><div class="fg fgf"><label class="fl">Nombre Completo</label><input class="fi" id="nu-nom"></div></div>
 <div class="fr fr1"><div class="fg fgf"><label class="fl">Correo Electrónico</label><input class="fi" id="nu-email" type="email"></div></div>
-<div class="fr"><div class="fg"><label class="fl">Rol del Sistema</label><select class="fi" id="nu-rol"><option value="admin_sistema">Administrador del Sistema</option><option value="admin_planta">Admin Planta</option><option value="juridico">Jurídico</option><option value="contabilidad">Contabilidad</option><option value="lectura">Solo Lectura</option></select></div><div class="fg"><label class="fl">Planta Asignada</label><select class="fi" id="nu-planta"><option value="">Todas las plantas</option><option value="1">Planta 1</option><option value="2">Planta 2</option><option value="3">Planta 3</option></select></div></div>
+<div class="fr"><div class="fg"><label class="fl">Rol del Sistema</label><select class="fi" id="nu-rol"><option value="admin_sistema">Administrador del Sistema</option><option value="admin_planta">Admin Planta</option><option value="juridico">Jurídico</option><option value="contabilidad">Contabilidad</option><option value="lectura">Solo Lectura</option></select></div><div class="fg"><label class="fl">Centro de Trabajo Asignado</label><select class="fi" id="nu-planta"><option value="">Todos los centros</option><option value="1">Centro 1</option><option value="2">Centro 2</option><option value="3">Centro 3</option></select></div></div>
 <div class="fr fr1"><div class="fg fgf"><label class="fl">Estado</label><select class="fi" id="nu-activo"><option value="1">Activo</option><option value="0">Inactivo</option></select></div></div>
 </div><div class="pf"><button class="btn bo" onclick="closeM('m-user')">Cancelar</button><button class="btn bp" onclick="saveUsuario()"><i class="ti ti-device-floppy"></i> Guardar</button></div></div></div>
 
@@ -1244,7 +1291,7 @@ let ARRENDATARIOS = [
   {id:1,nombre:"MI EMPRESA S.A. DE C.V.",rfc:"RFC-000000-000",dom:"Domicilio Fiscal de la Empresa",repLegal:"Representante Legal",activo:true},
 ];
 
-const PLANTAS=[{id:1,nombre:"Planta 1",proy:["Proyecto A","Proyecto B","Proyecto C"]},{id:2,nombre:"Planta 2",proy:[]},{id:3,nombre:"Planta 3",proy:[]}];
+const PLANTAS=[{id:1,nombre:"Centro 1",proy:["Proyecto A","Proyecto B","Proyecto C"]},{id:2,nombre:"Centro 2",proy:[]},{id:3,nombre:"Centro 3",proy:[]}];
 // Exponer variables globales en window para que el módulo Firebase pueda accederlas
 window.CTS          = CTS;
 window.PROVS        = PROVS;
@@ -1486,8 +1533,52 @@ document.addEventListener("dmx-auth", function(e) {
 // ══════════════════════════════════════════════════════════════════════════════
 
 let CFG={nc:"JBConsul",rs:"Mi Empresa S.A. de C.V.",rfc:"RFC-000000-000",dom:"Domicilio Fiscal de la Empresa",esc:"Datos de Constitución de la Empresa",rl:"Representante Legal",email:"contacto@miempresa.com",ea:"alertas@miempresa.com",ej:"juridico@miempresa.com",dias:30,logo:LOGO_B64};
-const MACHS=[{id:"tractores_pf",lbl:"Tractores P.Física",icon:"ti-tractor"},{id:"tractores_pm",lbl:"Tractores P.Moral",icon:"ti-building-factory"},{id:"camion_1",lbl:"Camión 1 Vehículo",icon:"ti-truck"},{id:"camion_n",lbl:"Camiones 2+ Vehículos",icon:"ti-truck"},{id:"inmueble",lbl:"Inmueble / Terreno",icon:"ti-home"},{id:"servicio",lbl:"Prestación de Servicios",icon:"ti-tool"},{id:"suministro",lbl:"Contrato de Suministro",icon:"ti-package"},{id:"traslado",lbl:"Traslado de Personal",icon:"ti-bus"},{id:"custom",lbl:"Subir .docx propio",icon:"ti-upload",d:true}];
-const SBS={monitor:[{id:"sb-r",ic:"ti-home",lb:"Resumen",sub:"resumen"},{id:"sb-a",ic:"ti-alert-triangle",lb:"Alertas",sub:"alertas"},{id:"sb-p",ic:"ti-map-pin",lb:"Por Proyecto",sub:"proyectos"}],taller:[{id:"sb-t1",ic:"ti-template",lb:"1. Tipo",sub:"tipo"},{id:"sb-t2",ic:"ti-edit",lb:"2. Datos",sub:"datos"},{id:"sb-t3",ic:"ti-eye",lb:"3. Vista Previa",sub:"preview"}],expediente:[{id:"sb-ea",ic:"ti-files",lb:"Todos",sub:"__all"},{id:"sb-ev",ic:"ti-check",lb:"Vigentes",sub:"__vig"},{id:"sb-ec",ic:"ti-clock-off",lb:"Vencidos",sub:"__ven"}],libro:[{id:"sb-lr",ic:"ti-receipt",lb:"Registrar Pago"},{id:"sb-lh",ic:"ti-list",lb:"Historial"}],proveedores:[{id:"sb-pc",ic:"ti-building-store",lb:"Catálogo"},{id:"sb-pn",ic:"ti-plus",lb:"Nuevo"}],reportes:[{id:"sb-rv",ic:"ti-file-report",lb:"Vencidos"},{id:"sb-rp",ic:"ti-report-money",lb:"Pagos"},{id:"sb-ra",ic:"ti-calendar-event",lb:"Alertas"},{id:"sb-rpl",ic:"ti-building",lb:"Por Planta"},{id:"sb-rpr",ic:"ti-users",lb:"Por Proveedor"},{id:"sb-rx",ic:"ti-table-export",lb:"Exportar Base"}],config:[{id:"sb-ce",ic:"ti-building-skyscraper",lb:"Empresa"},{id:"sb-cp",ic:"ti-map-pin",lb:"Plantas"},{id:"sb-cu",ic:"ti-users",lb:"Usuarios"},{id:"sb-ct",ic:"ti-table",lb:"Tarifas"},{id:"sb-cal",ic:"ti-bell",lb:"Alertas"}]};
+const CAT_CONTRATOS=[
+  {id:"cat_laboral",lbl:"Contratos Laborales",icon:"ti-users",color:"#2563eb",desc:"Recursos Humanos",items:[
+    {id:"lab_indeterminado",lbl:"Por Tiempo Indeterminado",icon:"ti-user-check"},
+    {id:"lab_determinado",lbl:"Por Tiempo Determinado",icon:"ti-calendar-time"},
+    {id:"lab_obra",lbl:"Por Obra Determinada",icon:"ti-hammer"},
+    {id:"lab_prueba",lbl:"Periodo de Prueba / Capacitación Inicial",icon:"ti-clipboard-check"}
+  ]},
+  {id:"cat_comercial",lbl:"Contratos Comerciales y Mercantiles",icon:"ti-building-store",color:"#059669",desc:"Operaciones y Ventas",items:[
+    {id:"com_compraventa",lbl:"Compraventa Mercantil",icon:"ti-receipt"},
+    {id:"com_servicios",lbl:"Prestación de Servicios",icon:"ti-tool"},
+    {id:"com_distribucion",lbl:"Distribución",icon:"ti-map-pin"},
+    {id:"com_comision",lbl:"Comisión Mercantil",icon:"ti-percent"},
+    {id:"com_suministro",lbl:"Suministro",icon:"ti-package"},
+    {id:"com_mediacion",lbl:"Mediación o Corretaje",icon:"ti-arrows-exchange"}
+  ]},
+  {id:"cat_arrendamiento",lbl:"Arrendamiento y Uso de Bienes",icon:"ti-building",color:"#f59e0b",desc:"Logística, Activos y Equipos",items:[
+    {id:"arr_inmobiliario",lbl:"Arrendamiento Inmobiliario",icon:"ti-home"},
+    {id:"arr_puro",lbl:"Arrendamiento Puro (Operativo de Equipos)",icon:"ti-tractor"},
+    {id:"arr_financiero",lbl:"Arrendamiento Financiero (Leasing)",icon:"ti-coin"},
+    {id:"arr_operador",lbl:"Renta de Equipo con Operador (Integral)",icon:"ti-truck"},
+    {id:"arr_spot",lbl:"Renta a Corto Plazo (Eventual / Spot)",icon:"ti-clock"},
+    {id:"arr_subarriendo",lbl:"Subarrendamiento de Equipo",icon:"ti-arrows-transfer-down"},
+    {id:"arr_comodato",lbl:"Comodato",icon:"ti-gift"}
+  ]},
+  {id:"cat_ip",lbl:"Propiedad Intelectual y Confidencialidad",icon:"ti-lock",color:"#7c3aed",desc:"Legal y TI",items:[
+    {id:"ip_nda",lbl:"Confidencialidad (NDA)",icon:"ti-shield-lock"},
+    {id:"ip_licencia",lbl:"Licencia de Uso de Marca o Software",icon:"ti-certificate"},
+    {id:"ip_cesion",lbl:"Cesión de Derechos",icon:"ti-transfer"},
+    {id:"ip_desarrollo",lbl:"Desarrollo de Software a la Medida",icon:"ti-code"}
+  ]},
+  {id:"cat_financiero",lbl:"Contratos Financieros y Corporativos",icon:"ti-report-money",color:"#dc2626",desc:"Finanzas y Socios",items:[
+    {id:"fin_credito",lbl:"Apertura de Crédito / Mutuo (Préstamo)",icon:"ti-currency-dollar"},
+    {id:"fin_asociacion",lbl:"Asociación en Participación (A en P)",icon:"ti-users-group"},
+    {id:"fin_accionistas",lbl:"Convenio de Accionistas",icon:"ti-briefcase"}
+  ]},
+  {id:"cat_servicios",lbl:"Servicios Generales y Proveedores",icon:"ti-settings",color:"#0891b2",desc:"Mantenimiento y Planta",items:[
+    {id:"svc_mantenimiento",lbl:"Mantenimiento (Preventivo / Correctivo)",icon:"ti-tool"},
+    {id:"svc_seguridad",lbl:"Servicios de Seguridad y Vigilancia",icon:"ti-shield"},
+    {id:"svc_logistica",lbl:"Logística y Transporte",icon:"ti-bus"},
+    {id:"svc_limpieza",lbl:"Servicios Especializados (Limpieza / Comedor)",icon:"ti-sparkles"}
+  ]},
+  {id:"custom",lbl:"Subir Machote Propio",icon:"ti-upload",color:"#6b7280",desc:"Archivo .docx personalizado",items:[],d:true}
+];
+const MACHS=CAT_CONTRATOS.flatMap(c=>c.items.length?c.items:[{id:c.id,lbl:c.lbl,icon:c.icon,d:c.d}]);
+let curCat=null;
+const SBS={monitor:[{id:"sb-r",ic:"ti-home",lb:"Resumen",sub:"resumen"},{id:"sb-a",ic:"ti-alert-triangle",lb:"Alertas",sub:"alertas"},{id:"sb-p",ic:"ti-map-pin",lb:"Por Proyecto",sub:"proyectos"}],taller:[{id:"sb-t1",ic:"ti-template",lb:"1. Tipo",sub:"tipo"},{id:"sb-t2",ic:"ti-edit",lb:"2. Datos",sub:"datos"},{id:"sb-t3",ic:"ti-eye",lb:"3. Vista Previa",sub:"preview"}],expediente:[{id:"sb-ea",ic:"ti-files",lb:"Todos",sub:"__all"},{id:"sb-ev",ic:"ti-check",lb:"Vigentes",sub:"__vig"},{id:"sb-ec",ic:"ti-clock-off",lb:"Vencidos",sub:"__ven"}],libro:[{id:"sb-lr",ic:"ti-receipt",lb:"Registrar Pago"},{id:"sb-lh",ic:"ti-list",lb:"Historial"}],proveedores:[{id:"sb-pc",ic:"ti-building-store",lb:"Catálogo"},{id:"sb-pn",ic:"ti-plus",lb:"Nuevo"}],reportes:[{id:"sb-rv",ic:"ti-file-report",lb:"Vencidos"},{id:"sb-rp",ic:"ti-report-money",lb:"Pagos"},{id:"sb-ra",ic:"ti-calendar-event",lb:"Alertas"},{id:"sb-rpl",ic:"ti-building",lb:"Por Planta"},{id:"sb-rpr",ic:"ti-users",lb:"Por Proveedor"},{id:"sb-rx",ic:"ti-table-export",lb:"Exportar Base"}],config:[{id:"sb-ce",ic:"ti-building-skyscraper",lb:"Empresa"},{id:"sb-cp",ic:"ti-map-pin",lb:"Centros de Trabajo"},{id:"sb-cu",ic:"ti-users",lb:"Usuarios"},{id:"sb-ct",ic:"ti-table",lb:"Tarifas"},{id:"sb-cal",ic:"ti-bell",lb:"Alertas"}]};
 const ROLS={admin_sistema:"Admin Sistema",admin_planta:"Admin Planta",juridico:"Jurídico",contabilidad:"Contabilidad",lectura:"Solo Lectura"};
 const TBADGE={"RENTA DE EQUIPOS":"bg","INMUEBLES":"bb","SERVICIOS":"bw","SUMINISTRO":"bgr","TRASLADO DE PERSONAL":"bp2"};
 const TSHORT={"RENTA DE EQUIPOS":"Equipos","INMUEBLES":"Inmueble","SERVICIOS":"Servicio","SUMINISTRO":"Suministro","TRASLADO DE PERSONAL":"Traslado"};
@@ -1554,6 +1645,7 @@ function goSub(sub){
   pg.querySelectorAll(":scope>.sub").forEach(s=>s.classList.remove("active"));
   const t=document.getElementById("sub-"+sub);
   if(t)t.classList.add("active");
+  if(sub==="datos"){adaptFormToContract(curMach);}
   // sync sidebar
   const items=SBS[curPg]||[];
   const match=items.find(i=>i.sub===sub);
@@ -1590,7 +1682,7 @@ function loadMonitor(){
   if(monPlantaEl) {
     const currentVal = monPlantaEl.value;
     const plantas = [...new Set(CTS.map(c=>(c.planta||"").trim()).filter(Boolean))].sort();
-    monPlantaEl.innerHTML = '<option value="">Todas las Plantas</option>' +
+    monPlantaEl.innerHTML = '<option value="">Todos los Centros</option>' +
       plantas.map(p => `<option value="${p}" ${p===currentVal?'selected':''}>${p}</option>`).join("");
   }
 
@@ -1603,6 +1695,10 @@ function loadMonitor(){
   let DS = CTS.slice();
   if(filCiclo)  DS = DS.filter(c => (c.ciclo||"") === filCiclo);
   if(filTipo)   DS = DS.filter(c => c.tipo === filTipo);
+  const filEstado = (document.getElementById("mon-estado-fil")||{}).value || "";
+  if(filEstado === "vigente")      DS = DS.filter(c => c.st === "vigente");
+  else if(filEstado === "vence_pronto") DS = DS.filter(c => c.st === "vence_pronto" || c.st === "por_vencer");
+  else if(filEstado === "vencido") DS = DS.filter(c => c.st === "vencido");
   if(filPlanta) DS = DS.filter(c => (c.planta||"").toUpperCase() === filPlanta.toUpperCase());
 
   const hoy = new Date().toISOString().split("T")[0];
@@ -1641,7 +1737,7 @@ function loadMonitor(){
 
   // Monitor subtitle
   if(el("mon-sub")) el("mon-sub").textContent =
-    CFG.rs+" — Ciclo "+(getCicloActivo()?.label||"")+
+    CFG.rs+" — Período "+(getCicloActivo()?.label||"")+
     (filTipo  ? " · "+TSHORT[filTipo]||filTipo : "")+
     (filPlanta? " · "+filPlanta : "");
 
@@ -1708,10 +1804,10 @@ function loadMonitor(){
     ctx.clearRect(0,0,W,H);
     const otros = Math.max(0, tot-vigs-vencs-pvs);
     const segments = [
-      {label:"Vigentes",  val:vigs,  col:"#1fa84a"},
-      {label:"Vencidos",  val:vencs, col:"#ef4444"},
+      {label:"Vigentes",  val:vigs,  col:"#2563eb"},
+      {label:"Vencidos",  val:vencs, col:"#dc2626"},
       {label:"Por Vencer",val:pvs,   col:"#f59e0b"},
-      {label:"Otros",     val:otros, col:"#e5e7eb"},
+      {label:"Otros",     val:otros, col:"#c8d4e8"},
     ].filter(s=>s.val>0);
     const total = segments.reduce((a,s)=>a+s.val,0)||1;
     let angle = -Math.PI/2;
@@ -1913,8 +2009,8 @@ function initTaller(){
   renderMachs();genFolio();
   // Llenar etiquetas de ciclo/planta en tab Condiciones
   const ca=getCicloActivo();
-  const plLbl=document.getElementById("plant-lbl")?.textContent||"Planta 1";
-  const planta=plLbl==="Todas"?"Planta 1":plLbl;
+  const plLbl=document.getElementById("plant-lbl")?.textContent||"Centro 1";
+  const planta=plLbl==="Todas"?"Centro 1":plLbl;
   const el1=document.getElementById("eco-ciclo-lbl");
   const el2=document.getElementById("eco-planta-lbl");
   if(el1)el1.textContent=ca?.label||"—";
@@ -1935,15 +2031,191 @@ function initTaller(){
   }
 }
 function renderMachs(){
-  document.getElementById("mach-grid").innerHTML=MACHS.map(m=>
-    `<div onclick="selMach(this,'${m.id}')" style="background:#fff;border:${m.id===curMach?"1.5px solid var(--g)":"1px solid var(--bd)"};border-style:${m.d?"dashed":"solid"};border-radius:9px;padding:12px;text-align:center;cursor:pointer">
-      <i class="ti ${m.icon}" style="font-size:22px;color:${m.id===curMach?"var(--g)":"var(--mu)"};display:block;margin-bottom:5px"></i>
-      <div style="font-size:11.5px;font-weight:500;color:${m.id===curMach?"var(--g)":"var(--tx)"}">${m.lbl}</div>
-    </div>`).join("");
+  const g=document.getElementById("mach-grid");
+  if(!curCat){
+    // Nivel 1: mostrar categorías
+    g.innerHTML=`<div style="grid-column:1/-1;margin-bottom:4px;font-size:12px;color:var(--mu)">Selecciona la categoría del contrato:</div>`+
+    CAT_CONTRATOS.map(c=>`
+      <div onclick="selCat('${c.id}')" style="background:#fff;border:1px solid var(--bd);border-radius:10px;padding:14px 12px;cursor:pointer;transition:all 0.15s;display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;border-top:3px solid ${c.color}"
+        onmouseover="this.style.borderColor='${c.color}';this.style.background='#f8faff'"
+        onmouseout="this.style.borderColor='${c.color}';this.style.borderTopColor='${c.color}';this.style.background='#fff'">
+        <i class="ti ${c.icon}" style="font-size:24px;color:${c.color}"></i>
+        <div style="font-size:12px;font-weight:600;color:var(--tx);line-height:1.3">${c.lbl}</div>
+        <div style="font-size:10px;color:var(--mu)">${c.desc}</div>
+        ${c.items.length?`<div style="font-size:10px;color:${c.color};font-weight:500">${c.items.length} tipos <i class="ti ti-chevron-right" style="font-size:10px"></i></div>`:''}
+      </div>`).join("");
+  } else {
+    const cat=CAT_CONTRATOS.find(x=>x.id===curCat);
+    if(!cat){curCat=null;renderMachs();return;}
+    if(cat.d||!cat.items.length){selMach(null,cat.id);return;}
+    g.innerHTML=`
+      <div style="grid-column:1/-1;display:flex;align-items:center;gap:8px;margin-bottom:2px">
+        <button onclick="curCat=null;renderMachs()" style="background:none;border:none;cursor:pointer;color:var(--g);font-size:13px;display:flex;align-items:center;gap:4px;padding:4px 8px;border-radius:6px;font-family:inherit" onmouseover="this.style.background='var(--gp)'" onmouseout="this.style.background='none'">
+          <i class="ti ti-arrow-left" style="font-size:13px"></i> Categorías
+        </button>
+        <i class="ti ti-chevron-right" style="color:var(--mu);font-size:12px"></i>
+        <span style="font-size:13px;font-weight:600;color:var(--tx)">${cat.lbl}</span>
+      </div>`+
+      cat.items.map(m=>`
+        <div onclick="selMach(this,'${m.id}')" style="background:#fff;border:${m.id===curMach?"1.5px solid var(--g)":"1px solid var(--bd)"};border-radius:9px;padding:12px;text-align:center;cursor:pointer;transition:all 0.15s"
+          onmouseover="this.style.borderColor='var(--g)';this.style.background='var(--gp)'"
+          onmouseout="this.style.borderColor='${m.id===curMach?"var(--g)":"var(--bd)"}';this.style.background='${m.id===curMach?"var(--gp)":"#fff"}'">
+          <i class="ti ${m.icon}" style="font-size:20px;color:${m.id===curMach?"var(--g)":"var(--mu)"};display:block;margin-bottom:5px"></i>
+          <div style="font-size:11px;font-weight:500;color:${m.id===curMach?"var(--g)":"var(--tx)"};line-height:1.3">${m.lbl}</div>
+        </div>`).join("");
+  }
 }
-function selMach(el,id){curMach=id;const m=MACHS.find(x=>x.id===id);document.getElementById("lbl-mach").textContent=m?m.lbl:id;renderMachs();genFolio();}
+function selCat(id){
+  const cat=CAT_CONTRATOS.find(x=>x.id===id);
+  if(!cat)return;
+  if(cat.d||!cat.items.length){selMach(null,cat.id);return;}
+  curCat=id;renderMachs();
+}
+function selMach(el,id){curMach=id;const m=MACHS.find(x=>x.id===id)||CAT_CONTRATOS.find(x=>x.id===id);document.getElementById("lbl-mach").textContent=m?m.lbl:id;renderMachs();genFolio();}
+
+// ── ADAPT FORM TO CONTRACT TYPE ────────────────────────────────────────────
+const FORM_SCHEMA={
+  // ── LABORAL ──────────────────────────────────────────────────────────────
+  _laboral:{
+    title:"Datos del Contrato Laboral",sub:"Paso 2 — Información del empleado y condiciones",
+    tab1:{icon:"ti-id-badge",lbl:"Trabajador"},
+    tab2:{icon:"ti-building-factory-2",lbl:"Empresa (Patrón)"},
+    tab3:{icon:"ti-briefcase",lbl:"Puesto / Funciones"},
+    tab4:{icon:"ti-currency-peso",lbl:"Condiciones Económicas"},
+    lbl_rfc:"CURP / RFC del Trabajador",lbl_prov:"Nombre Completo del Trabajador",
+    lbl_dom:"Domicilio del Trabajador",lbl_repleg:"Representante del Trabajador (si aplica)",
+    lbl_arr_rfc:"RFC del Patrón / Empresa",lbl_arr_nombre:"Razón Social del Patrón",
+    lbl_arr_dom:"Domicilio Fiscal del Patrón",
+    lbl_bien:"Descripción del Puesto y Funciones a Desempeñar",
+    lbl_tar1:"Salario Base Diario",lbl_tar2:"Prestaciones / Bonos",lbl_oper:"Salario Mensual Bruto",
+  },
+  // ── COMERCIAL ────────────────────────────────────────────────────────────
+  _comercial:{
+    title:"Datos del Contrato Comercial",sub:"Paso 2 — Partes y objeto del contrato",
+    tab1:{icon:"ti-user",lbl:"Proveedor / Vendedor"},
+    tab2:{icon:"ti-building",lbl:"Comprador / Cliente"},
+    tab3:{icon:"ti-package",lbl:"Objeto del Contrato"},
+    tab4:{icon:"ti-currency-peso",lbl:"Condiciones Económicas"},
+    lbl_rfc:"RFC del Proveedor / Vendedor",lbl_prov:"Nombre / Razón Social del Proveedor",
+    lbl_dom:"Domicilio del Proveedor",lbl_repleg:"Representante Legal del Proveedor",
+    lbl_arr_rfc:"RFC del Comprador / Cliente",lbl_arr_nombre:"Nombre / Razón Social del Comprador",
+    lbl_arr_dom:"Domicilio del Comprador",
+    lbl_bien:"Descripción de Mercancías / Servicios / Objeto del Contrato",
+    lbl_tar1:"Precio Unitario / Tarifa",lbl_tar2:"Descuentos / Condiciones Especiales",lbl_oper:"Comisión / Fee (si aplica)",
+  },
+  // ── ARRENDAMIENTO ────────────────────────────────────────────────────────
+  _arrendamiento:{
+    title:"Datos del Contrato de Arrendamiento",sub:"Paso 2 — Arrendador, Arrendataria y bien",
+    tab1:{icon:"ti-user",lbl:"Arrendador"},
+    tab2:{icon:"ti-building",lbl:"Arrendataria"},
+    tab3:{icon:"ti-tractor",lbl:"Bien / Objeto"},
+    tab4:{icon:"ti-currency-peso",lbl:"Condiciones Económicas"},
+    lbl_rfc:"RFC del Arrendador",lbl_prov:"Nombre del Arrendador",
+    lbl_dom:"Domicilio del Arrendador",lbl_repleg:"Representante Legal del Arrendador (P.M.)",
+    lbl_arr_rfc:"RFC de la Arrendataria",lbl_arr_nombre:"Razón Social de la Arrendataria",
+    lbl_arr_dom:"Domicilio de la Arrendataria",
+    lbl_bien:"Descripción Detallada del Bien Arrendado",
+    lbl_tar1:"Tarifa Sin Implementos / Día",lbl_tar2:"Tarifa Con Implementos / Día",lbl_oper:"Cuota Fija Operador / Día",
+  },
+  // ── PROPIEDAD INTELECTUAL ─────────────────────────────────────────────────
+  _pi:{
+    title:"Datos del Contrato de Propiedad Intelectual",sub:"Paso 2 — Titular y beneficiario",
+    tab1:{icon:"ti-shield-lock",lbl:"Titular / Licenciante"},
+    tab2:{icon:"ti-building",lbl:"Licenciatario / Receptor"},
+    tab3:{icon:"ti-code",lbl:"Objeto / Derechos"},
+    tab4:{icon:"ti-currency-peso",lbl:"Condiciones y Regalías"},
+    lbl_rfc:"RFC del Titular / Licenciante",lbl_prov:"Nombre del Titular / Licenciante",
+    lbl_dom:"Domicilio del Titular",lbl_repleg:"Representante Legal del Titular (P.M.)",
+    lbl_arr_rfc:"RFC del Licenciatario",lbl_arr_nombre:"Nombre / Razón Social del Licenciatario",
+    lbl_arr_dom:"Domicilio del Licenciatario",
+    lbl_bien:"Descripción de los Derechos / Propiedad Intelectual Objeto del Contrato",
+    lbl_tar1:"Regalía / Fee Mensual",lbl_tar2:"Pago Único (si aplica)",lbl_oper:"Ajuste Anual",
+  },
+  // ── FINANCIERO ────────────────────────────────────────────────────────────
+  _financiero:{
+    title:"Datos del Contrato Financiero / Corporativo",sub:"Paso 2 — Partes y condiciones del financiamiento",
+    tab1:{icon:"ti-building-bank",lbl:"Acreedor / Prestamista"},
+    tab2:{icon:"ti-building",lbl:"Deudor / Receptor"},
+    tab3:{icon:"ti-file-invoice",lbl:"Objeto del Contrato"},
+    tab4:{icon:"ti-currency-peso",lbl:"Condiciones Financieras"},
+    lbl_rfc:"RFC del Acreedor / Prestamista",lbl_prov:"Nombre del Acreedor / Institución",
+    lbl_dom:"Domicilio del Acreedor",lbl_repleg:"Representante Legal del Acreedor",
+    lbl_arr_rfc:"RFC del Deudor / Receptor",lbl_arr_nombre:"Nombre / Razón Social del Deudor",
+    lbl_arr_dom:"Domicilio del Deudor",
+    lbl_bien:"Descripción del Financiamiento / Objeto del Convenio",
+    lbl_tar1:"Monto del Crédito / Capital",lbl_tar2:"Tasa de Interés Anual",lbl_oper:"Comisión por Apertura",
+  },
+  // ── SERVICIOS ─────────────────────────────────────────────────────────────
+  _servicios:{
+    title:"Datos del Contrato de Servicios",sub:"Paso 2 — Prestador y contratante del servicio",
+    tab1:{icon:"ti-tool",lbl:"Prestador de Servicios"},
+    tab2:{icon:"ti-building",lbl:"Contratante"},
+    tab3:{icon:"ti-clipboard-list",lbl:"Alcance del Servicio"},
+    tab4:{icon:"ti-currency-peso",lbl:"Condiciones Económicas"},
+    lbl_rfc:"RFC del Prestador",lbl_prov:"Nombre / Razón Social del Prestador",
+    lbl_dom:"Domicilio del Prestador",lbl_repleg:"Representante Legal del Prestador (P.M.)",
+    lbl_arr_rfc:"RFC del Contratante",lbl_arr_nombre:"Nombre / Razón Social del Contratante",
+    lbl_arr_dom:"Domicilio del Contratante",
+    lbl_bien:"Descripción Detallada del Servicio a Prestar y Alcance",
+    lbl_tar1:"Costo Mensual / Tarifa",lbl_tar2:"Costo por Evento / Visita",lbl_oper:"Costo de Materiales (si aplica)",
+  }
+};
+// Map each machote ID to a schema key
+const MACH_SCHEMA={
+  lab_indeterminado:"_laboral",lab_determinado:"_laboral",lab_obra:"_laboral",lab_prueba:"_laboral",
+  com_compraventa:"_comercial",com_distribucion:"_comercial",com_comision:"_comercial",com_mediacion:"_comercial",
+  com_servicios:"_servicios",com_suministro:"_comercial",
+  arr_inmobiliario:"_arrendamiento",arr_puro:"_arrendamiento",arr_financiero:"_arrendamiento",
+  arr_operador:"_arrendamiento",arr_spot:"_arrendamiento",arr_subarriendo:"_arrendamiento",arr_comodato:"_arrendamiento",
+  tractores_pf:"_arrendamiento",tractores_pm:"_arrendamiento",camion_1:"_arrendamiento",camion_n:"_arrendamiento",
+  inmueble:"_arrendamiento",servicio:"_servicios",suministro:"_comercial",traslado:"_servicios",
+  ip_nda:"_pi",ip_licencia:"_pi",ip_cesion:"_pi",ip_desarrollo:"_pi",
+  fin_credito:"_financiero",fin_asociacion:"_financiero",fin_accionistas:"_financiero",
+  svc_mantenimiento:"_servicios",svc_seguridad:"_servicios",svc_logistica:"_servicios",svc_limpieza:"_servicios",
+  custom:"_arrendamiento"
+};
+function adaptFormToContract(machId){
+  const sk=MACH_SCHEMA[machId]||"_arrendamiento";
+  const s=FORM_SCHEMA[sk];
+  if(!s)return;
+  // Title & subtitle
+  const tt=document.getElementById("datos-title");const ts=document.getElementById("datos-sub");
+  if(tt)tt.textContent=s.title;if(ts)ts.textContent=s.sub;
+  // Tab labels
+  const tabs=document.querySelectorAll("#datos-tabs .itab");
+  if(tabs[0])tabs[0].querySelector("span").textContent=s.tab1.lbl;
+  if(tabs[0])tabs[0].querySelector("i").className="ti "+s.tab1.icon;
+  if(tabs[1])tabs[1].querySelector("span").textContent=s.tab2.lbl;
+  if(tabs[1])tabs[1].querySelector("i").className="ti "+s.tab2.icon;
+  if(tabs[2])tabs[2].querySelector("span").textContent=s.tab3.lbl;
+  if(tabs[2])tabs[2].querySelector("i").className="ti "+s.tab3.icon;
+  if(tabs[3])tabs[3].querySelector("span").textContent=s.tab4.lbl;
+  if(tabs[3])tabs[3].querySelector("i").className="ti "+s.tab4.icon;
+  // Field labels
+  const sl=id=>document.getElementById(id);
+  if(sl("lbl-rfc"))sl("lbl-rfc").textContent=s.lbl_rfc;
+  if(sl("lbl-prov"))sl("lbl-prov").textContent=s.lbl_prov;
+  if(sl("lbl-dom"))sl("lbl-dom").textContent=s.lbl_dom;
+  if(sl("lbl-repleg"))sl("lbl-repleg").textContent=s.lbl_repleg;
+  if(sl("lbl-arr-rfc"))sl("lbl-arr-rfc").textContent=s.lbl_arr_rfc;
+  if(sl("lbl-arr-nombre"))sl("lbl-arr-nombre").textContent=s.lbl_arr_nombre;
+  if(sl("lbl-arr-dom"))sl("lbl-arr-dom").textContent=s.lbl_arr_dom;
+  if(sl("lbl-bien"))sl("lbl-bien").textContent=s.lbl_bien;
+  // Condition tab labels
+  const t1=document.querySelector("label[for='t-tar1'],#td-eco .fg:nth-child(1) .fl");
+  const t2=document.querySelector("#td-eco .fg:nth-child(2) .fl");
+  const t3=document.querySelector("#td-eco .fr:nth-child(2) .fg:nth-child(1) .fl");
+  // Use direct query on visible labels in td-eco
+  const ecoFls=document.querySelectorAll("#td-eco .fl");
+  if(ecoFls[0])ecoFls[0].textContent=s.lbl_tar1;
+  if(ecoFls[1])ecoFls[1].textContent=s.lbl_tar2;
+  if(ecoFls[2])ecoFls[2].textContent=s.lbl_oper;
+  // Banner in arrendataria tab
+  const bnr=document.getElementById("arr2-banner-txt");
+  if(bnr)bnr.innerHTML="Escribe el <strong>RFC</strong> de "+s.tab2.lbl.toLowerCase()+" para autocompletar sus datos del catálogo.";
+}
 function genFolio(){
-  const tmap={tractores_pf:"EQUIPOS",tractores_pm:"EQUIPOS",camion_1:"EQUIPOS",camion_n:"EQUIPOS",inmueble:"INMUEBLE",servicio:"SERV",suministro:"SUMI",traslado:"TRASL",custom:"CONT"};
+  const tmap={tractores_pf:"EQUIPOS",tractores_pm:"EQUIPOS",camion_1:"EQUIPOS",camion_n:"EQUIPOS",inmueble:"INMUEBLE",servicio:"SERV",suministro:"SUMI",traslado:"TRASL",custom:"CONT",lab_indeterminado:"LAB",lab_determinado:"LAB",lab_obra:"LAB",lab_prueba:"LAB",com_compraventa:"COM",com_servicios:"COM",com_distribucion:"COM",com_comision:"COM",com_suministro:"SUMI",com_mediacion:"COM",arr_inmobiliario:"INMUEBLE",arr_puro:"EQUIPOS",arr_financiero:"EQUIPOS",arr_operador:"EQUIPOS",arr_spot:"EQUIPOS",arr_subarriendo:"EQUIPOS",arr_comodato:"INMO",ip_nda:"NDA",ip_licencia:"PI",ip_cesion:"PI",ip_desarrollo:"PI",fin_credito:"FIN",fin_asociacion:"FIN",fin_accionistas:"FIN",svc_mantenimiento:"SVC",svc_seguridad:"SVC",svc_logistica:"TRASL",svc_limpieza:"SVC"};
   const t=tmap[curMach]||"CONT";
   const ci=(getCicloActivo()?.label||"2025-2026").replace("-","").slice(2,6);
   folioN++;
@@ -2010,7 +2282,7 @@ function saveToExp(){
       return;
     }
   }
-  const tmap={tractores_pf:"RENTA DE EQUIPOS",tractores_pm:"RENTA DE EQUIPOS",camion_1:"RENTA DE EQUIPOS",camion_n:"RENTA DE EQUIPOS",inmueble:"INMUEBLES",servicio:"SERVICIOS",suministro:"SUMINISTRO",traslado:"TRASLADO DE PERSONAL"};
+  const tmap={tractores_pf:"RENTA DE EQUIPOS",tractores_pm:"RENTA DE EQUIPOS",camion_1:"RENTA DE EQUIPOS",camion_n:"RENTA DE EQUIPOS",inmueble:"INMUEBLES",servicio:"SERVICIOS",suministro:"SUMINISTRO",traslado:"TRASLADO DE PERSONAL",lab_indeterminado:"LABORAL",lab_determinado:"LABORAL",lab_obra:"LABORAL",lab_prueba:"LABORAL",com_compraventa:"COMERCIAL",com_servicios:"SERVICIOS",com_distribucion:"COMERCIAL",com_comision:"COMERCIAL",com_suministro:"SUMINISTRO",com_mediacion:"COMERCIAL",arr_inmobiliario:"INMUEBLES",arr_puro:"RENTA DE EQUIPOS",arr_financiero:"RENTA DE EQUIPOS",arr_operador:"RENTA DE EQUIPOS",arr_spot:"RENTA DE EQUIPOS",arr_subarriendo:"RENTA DE EQUIPOS",arr_comodato:"INMUEBLES",ip_nda:"CONFIDENCIALIDAD",ip_licencia:"PROP. INTELECTUAL",ip_cesion:"PROP. INTELECTUAL",ip_desarrollo:"PROP. INTELECTUAL",fin_credito:"FINANCIERO",fin_asociacion:"FINANCIERO",fin_accionistas:"FINANCIERO",svc_mantenimiento:"SERVICIOS",svc_seguridad:"SERVICIOS",svc_logistica:"TRASLADO DE PERSONAL",svc_limpieza:"SERVICIOS"};
   const ca=getCicloActivo();
   const ct={id:Date.now(),folio:d.folio,tipo:tmap[curMach]||"SERVICIOS",prov:d.prov,ax:"",proy:d.proy,ffin:"",fi:d.fecha,imp:d.imp,var:d.imp===0,mon:d.mon,st:"VIGENTE",area:"",desc:d.bien,eco:d.eco,per:d.per,ciclo:ca?.id||"",rfc:d.rfc,dom:d.dom,persona:d.persona,repleg:d.repleg,arrNombre:d.arrNombre,arrRfc:d.arrRfc,arrDom:d.arrDom};
   CTS.unshift(ct);
@@ -2177,7 +2449,7 @@ function renderTarifasTab(){
   const tarCicloEl = document.getElementById("tar-ciclo-sel");
   const tarPlantaEl = document.getElementById("tar-planta-sel");
   const cicloId = tarCicloEl?.value || getCicloActivo()?.id || "";
-  const planta  = tarPlantaEl?.value || "Planta 1";
+  const planta  = tarPlantaEl?.value || "Centro 1";
   const tars = getTars(cicloId, planta);
   const cicloLbl = CICLOS.find(c=>c.id===cicloId)?.label || cicloId;
   document.getElementById("tar-tb").innerHTML = tars.map(t=>`<tr>
@@ -2203,7 +2475,7 @@ function renderCiclosTab(){
       onfocus="this.style.borderColor='var(--g)'" onblur="this.style.borderColor='var(--bd)'"></td>
     <td><span class="b ${c.activo?"bg":"bgr"}">${c.activo?"★ Activo":"Inactivo"}</span></td>
     <td>
-      ${!c.activo ? `<button class="btn bp bsm" onclick="setCicloActivo('${c.id}')"><i class="ti ti-star"></i> Activar</button>` : '<span style="font-size:11px;color:var(--g)">Ciclo activo actual</span>'}
+      ${!c.activo ? `<button class="btn bp bsm" onclick="setCicloActivo('${c.id}')"><i class="ti ti-star"></i> Activar</button>` : '<span style="font-size:11px;color:var(--g)">Período activo actual</span>'}
     </td>
     <td style="white-space:nowrap">
       ${!c.activo?`<button class="btn bg2 bsm" onclick="delCiclo('${c.id}')" title="Eliminar"><i class="ti ti-trash" style="color:var(--er)"></i></button>`:""}
@@ -2236,7 +2508,7 @@ function setCicloActivo(id){
   renderCiclosTab();
   loadMonitor();
   var lbl = CICLOS.find(c=>c.id===id)?.label || id;
-  toast("Ciclo activo: "+lbl);
+  toast("Período activo: "+lbl);
   // Guardar todos los ciclos (local + Firestore)
   CICLOS.forEach(c=>{
     lsSet("ciclos",String(c.id),c);
@@ -2249,7 +2521,7 @@ function syncCicloLabels(){
   const lbl=ca.label;
   const lTop=document.getElementById("ciclo-lbl-top");
   if(lTop)lTop.textContent=lbl;
-  // cfg-ciclo-display eliminado — el ciclo activo se gestiona en pestaña Ciclos Agrícolas
+  // cfg-ciclo-display eliminado — el ciclo activo se gestiona en pestaña Períodos / Ejercicios
   // Actualizar selector de ciclo en monitor
   fillCicloSelect("mon-ciclo-fil",cicloConsulta);
   fillCicloSelect("ef-ciclo",cicloConsulta,true);
@@ -2374,7 +2646,7 @@ function copiarTarifas(){
   const tarCicloEl=document.getElementById("tar-ciclo-sel");
   const tarPlantaEl=document.getElementById("tar-planta-sel");
   const cicloId=tarCicloEl?.value||getCicloActivo()?.id||"2526";
-  const planta=tarPlantaEl?.value||"Planta 1";
+  const planta=tarPlantaEl?.value||"Centro 1";
   const dest=prompt("Copiar tarifas a (ciclo_planta, ej: 2627_Planta2):");
   if(!dest||!dest.includes("_")){toast("Formato inválido","warn");return;}
   const [dc,dp]=dest.split("_");
@@ -2388,7 +2660,7 @@ function addTarifa(){
   const tarCicloEl=document.getElementById("tar-ciclo-sel");
   const tarPlantaEl=document.getElementById("tar-planta-sel");
   const cicloId=tarCicloEl?.value||getCicloActivo()?.id||"2526";
-  const planta=tarPlantaEl?.value||"Planta 1";
+  const planta=tarPlantaEl?.value||"Centro 1";
   const a=prompt("Nombre de la actividad:");if(!a)return;
   const c=parseFloat(prompt("Costo (MXN):")||0);
   const tars=getTars(cicloId,planta);
@@ -2411,7 +2683,7 @@ function editUser(id){const u=USERS.find(x=>x.id===id);if(!u)return;document.get
 function saveUsuario(){const n=document.getElementById("nu-nom").value.trim();const e=document.getElementById("nu-email").value.trim();if(!n||!e){toast("Nombre y correo requeridos","warn");return;}const data={nombre:n,email:e,rol:document.getElementById("nu-rol").value,planta:document.getElementById("nu-planta").value,activo:document.getElementById("nu-activo").value==="1"};const eid=parseInt(document.getElementById("nu-id").value)||null;if(eid){const u=USERS.find(x=>x.id===eid);if(u)Object.assign(u,data);}else{USERS.push({id:Date.now(),...data});}closeM("m-user");renderConfig();toast("Usuario guardado.");document.getElementById("nu-id").value="";}
 function toggleUser(id){const u=USERS.find(x=>x.id===id);if(u){u.activo=!u.activo;renderConfig();toast(u.activo?"Usuario activado.":"Usuario desactivado.");}}
 function saveConfig(){CFG.nc=document.getElementById("cfg-nc").value;CFG.rs=document.getElementById("cfg-rs").value;CFG.rfc=document.getElementById("cfg-rfc").value;CFG.dom=document.getElementById("cfg-dom").value;CFG.esc=document.getElementById("cfg-esc").value;CFG.rl=document.getElementById("cfg-rl").value;CFG.email=document.getElementById("cfg-email").value;CFG.ea=document.getElementById("cfg-ea").value;CFG.ej=document.getElementById("cfg-ej").value;CFG.dias=parseInt(document.getElementById("cfg-dias").value)||30;
-document.getElementById("tb-brand").textContent=CFG.nc+" — Contratos";const mSub=document.getElementById("mon-sub");if(mSub)mSub.textContent=CFG.rs+" — Ciclo "+(getCicloActivo()?.label||"");document.getElementById("dias-lbl").textContent=CFG.dias;syncCicloLabels();var cfgToSave=Object.assign({},CFG); delete cfgToSave.ciclo; lsSetObj("cfg_obj",cfgToSave); saveDoc("config","cfg",cfgToSave);toast("Configuración guardada.");}
+document.getElementById("tb-brand").textContent=CFG.nc+" — Contratos";const mSub=document.getElementById("mon-sub");if(mSub)mSub.textContent=CFG.rs+" — Período "+(getCicloActivo()?.label||"");document.getElementById("dias-lbl").textContent=CFG.dias;syncCicloLabels();var cfgToSave=Object.assign({},CFG); delete cfgToSave.ciclo; lsSetObj("cfg_obj",cfgToSave); saveDoc("config","cfg",cfgToSave);toast("Configuración guardada.");}
 function loadLogo(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>{CFG.logo=ev.target.result;document.getElementById("logo-prev").src=CFG.logo;document.getElementById("tb-logo").src=CFG.logo;toast("Logotipo actualizado.");};r.readAsDataURL(f);}
 
 // --- REPORTES ---
@@ -2554,7 +2826,7 @@ function togglePlantMenu(){
   if(!m){
     m=document.createElement("div");m.id="plant-menu";
     m.style.cssText="position:fixed;top:50px;right:56px;background:#fff;border:1px solid var(--bd);border-radius:8px;box-shadow:0 4px 14px rgba(0,0,0,.1);z-index:200;min-width:150px;overflow:hidden";
-    ["Planta 1","Planta 2","Planta 3","Todas"].forEach(p=>{const it=document.createElement("div");it.style.cssText="padding:9px 14px;cursor:pointer;font-size:12.5px";it.textContent=p;it.onmouseenter=()=>it.style.background="var(--gp)";it.onmouseleave=()=>it.style.background="";it.onclick=()=>{document.getElementById("plant-lbl").textContent=p;m.remove();loadMonitor();};m.appendChild(it);});
+    ["Centro 1","Centro 2","Centro 3","Todas"].forEach(p=>{const it=document.createElement("div");it.style.cssText="padding:9px 14px;cursor:pointer;font-size:12.5px";it.textContent=p;it.onmouseenter=()=>it.style.background="var(--gp)";it.onmouseleave=()=>it.style.background="";it.onclick=()=>{document.getElementById("plant-lbl").textContent=p;m.remove();loadMonitor();};m.appendChild(it);});
     document.body.appendChild(m);
     setTimeout(()=>document.addEventListener("click",function h(e){if(!e.target.closest("#plant-menu")&&!e.target.closest("#pselbtn")){const el=document.getElementById("plant-menu");if(el)el.remove();document.removeEventListener("click",h);}},100));
   } else m.remove();
@@ -2904,7 +3176,7 @@ function openExpediente(contratoId) {
         '<span style="font-size:12px;font-weight:600;color:var(--tx)">Completitud del Expediente</span>' +
         '<span class="exp-progress-pct" style="font-size:12px;font-weight:700;color:' + (st.complete?"var(--g)":"var(--wr)") + '">' + st.pct + '%</span>' +
       '</div>' +
-      '<div style="height:8px;background:#e5e7eb;border-radius:4px;overflow:hidden;margin-bottom:6px">' +
+      '<div style="height:8px;background:var(--bd);border-radius:4px;overflow:hidden;margin-bottom:6px">' +
         '<div class="exp-progress-bar-fill" style="height:100%;width:' + st.pct + '%;background:' + (st.complete?"var(--g)":"var(--wr)") + ';border-radius:4px;transition:width 0.4s"></div>' +
       '</div>' +
       '<div class="exp-progress-cnt" style="display:flex;gap:14px;font-size:11px;color:var(--mu)">' +
@@ -3016,8 +3288,8 @@ function printDoc(contratoId, docId) {
       var w = window.open("", "_blank");
       w.document.write('<!DOCTYPE html><html><head><meta charset="UTF-8"><style>body{margin:0}iframe,img{width:100%;height:100vh;border:none;display:block}</style></head><body>' +
         '<div style="position:fixed;top:10px;right:10px;z-index:99;display:flex;gap:8px">' +
-          '<button onclick="window.print()" style="padding:8px 16px;background:#1fa84a;color:#fff;border:none;border-radius:6px;cursor:pointer">🖨️ Imprimir</button>' +
-          '<button onclick="window.close()" style="padding:8px 16px;background:#e5e7eb;border:none;border-radius:6px;cursor:pointer">✕</button>' +
+          '<button onclick="window.print()" style="padding:8px 16px;background:#2563eb;color:#fff;border:none;border-radius:6px;cursor:pointer">🖨️ Imprimir</button>' +
+          '<button onclick="window.close()" style="padding:8px 16px;background:#c8d4e8;border:none;border-radius:6px;cursor:pointer">✕</button>' +
         '</div>' +
         (type.includes("image") ? '<img src="'+result.url+'" style="max-width:100%;display:block;margin:auto">' : '<iframe src="'+result.url+'"></iframe>') +
         '</body></html>');
@@ -3056,7 +3328,7 @@ function printExpedienteCompleto(contratoId) {
         '<tr><td>Estado</td><td>'+contrato.st+'</td></tr>' +
         '<tr><td>Documentos</td><td>'+subidos.length+' de '+docs.length+'</td></tr>' +
       '</table>' +
-      '<div class="no-print" style="margin-top:24px"><button onclick="window.print()" style="padding:10px 24px;background:#1fa84a;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:14px;font-weight:600">🖨️ Imprimir / Guardar como PDF</button></div>' +
+      '<div class="no-print" style="margin-top:24px"><button onclick="window.print()" style="padding:10px 24px;background:#2563eb;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:14px;font-weight:600">🖨️ Imprimir / Guardar como PDF</button></div>' +
       '</div>';
 
     var pages = items.map(function(item, idx) {
@@ -3067,15 +3339,15 @@ function printExpedienteCompleto(contratoId) {
       if(!url) return '<div class="doc-page">'+hdr+'<p style="color:#9ca3af;padding:20px">Archivo no disponible en esta sesión.</p></div>';
       if(type.includes("image")) return '<div class="doc-page">'+hdr+'<img src="'+url+'" style="max-width:100%;max-height:85vh;object-fit:contain;display:block;margin:auto"></div>';
       if(type.includes("pdf"))   return '<div class="doc-page">'+hdr+'<iframe src="'+url+'" style="width:100%;height:85vh;border:none;display:block"></iframe></div>';
-      return '<div class="doc-page">'+hdr+'<p style="padding:20px;color:#6b7280">Tipo: '+type+'. Descarga individualmente.</p></div>';
+      return '<div class="doc-page">'+hdr+'<p style="padding:20px;color:var(--tx3)">Tipo: '+type+'. Descarga individualmente.</p></div>';
     });
 
     var html = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Expediente — '+contrato.folio+'</title>' +
-      '<style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:sans-serif;background:#f3f4f6}' +
-      '.portada{background:#fff;padding:40px;page-break-after:always}.portada h1{color:#1fa84a;font-size:22px;margin-bottom:4px}' +
-      '.portada table{width:100%;border-collapse:collapse;margin-top:12px}.portada td{padding:7px 10px;border:1px solid #e5e7eb;font-size:13px}' +
-      '.portada td:first-child{font-weight:600;background:#f9fafb;width:200px}' +
-      '.doc-page{background:#fff;page-break-before:always}.doc-header{background:#1fa84a;color:#fff;font-size:12px;padding:6px 14px}' +
+      '<style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:sans-serif;background:var(--bg)}' +
+      '.portada{background:#fff;padding:40px;page-break-after:always}.portada h1{color:#2563eb;font-size:22px;margin-bottom:4px}' +
+      '.portada table{width:100%;border-collapse:collapse;margin-top:12px}.portada td{padding:7px 10px;border:1px solid var(--bd);font-size:13px}' +
+      '.portada td:first-child{font-weight:600;background:var(--bg);width:200px}' +
+      '.doc-page{background:#fff;page-break-before:always}.doc-header{background:#2563eb;color:#fff;font-size:12px;padding:6px 14px}' +
       '@media print{.no-print{display:none!important}body{background:#fff}}</style>' +
       '</head><body>' + portada + pages.join("") + '</body></html>';
 
@@ -3201,7 +3473,7 @@ initGlobalFileInput();
     </div>
     <div class="tw">
       <table>
-        <thead><tr><th style="background:#1fa84a;color:#fff">NOMBRE</th><th style="background:#1fa84a;color:#fff">RFC</th><th style="background:#1fa84a;color:#fff">CLAVE_AX</th><th style="background:#1fa84a;color:#fff">TIPO</th><th style="background:#1fa84a;color:#fff">TELEFONO</th><th style="background:#1fa84a;color:#fff">DOMICILIO</th><th style="background:#1fa84a;color:#fff">BANCO</th><th style="background:#1fa84a;color:#fff">CLABE</th></tr></thead>
+        <thead><tr><th style="background:#2563eb;color:#fff">NOMBRE</th><th style="background:#2563eb;color:#fff">RFC</th><th style="background:#2563eb;color:#fff">CLAVE_AX</th><th style="background:#2563eb;color:#fff">TIPO</th><th style="background:#2563eb;color:#fff">TELEFONO</th><th style="background:#2563eb;color:#fff">DOMICILIO</th><th style="background:#2563eb;color:#fff">BANCO</th><th style="background:#2563eb;color:#fff">CLABE</th></tr></thead>
         <tbody>
           <tr style="background:#f0fdf4">
             <td style="font-size:11px;color:var(--mu)">Nombre completo o razón social como aparece en CFDI</td>
@@ -3267,18 +3539,18 @@ initGlobalFileInput();
     <div class="tw" style="overflow-x:auto">
       <table>
         <thead><tr>
-          <th style="background:#1fa84a;color:#fff;white-space:nowrap">FOLIO <span style="font-size:9px;opacity:0.8">(opcional)</span></th>
-          <th style="background:#1fa84a;color:#fff;white-space:nowrap">PROVEEDOR <span style="font-size:9px;background:#ef4444;padding:1px 4px;border-radius:3px">*</span></th>
-          <th style="background:#1fa84a;color:#fff;white-space:nowrap">CLAVE_AX</th>
-          <th style="background:#1fa84a;color:#fff;white-space:nowrap">TIPO <span style="font-size:9px;background:#ef4444;padding:1px 4px;border-radius:3px">*</span></th>
-          <th style="background:#1fa84a;color:#fff;white-space:nowrap">PROYECTO</th>
-          <th style="background:#1fa84a;color:#fff;white-space:nowrap">PLANTA</th>
-          <th style="background:#1fa84a;color:#fff;white-space:nowrap">FECHA_INICIO</th>
-          <th style="background:#1fa84a;color:#fff;white-space:nowrap">FECHA_FIN</th>
-          <th style="background:#1fa84a;color:#fff;white-space:nowrap">IMPORTE</th>
-          <th style="background:#1fa84a;color:#fff;white-space:nowrap">MONEDA</th>
-          <th style="background:#1fa84a;color:#fff;white-space:nowrap">AREA</th>
-          <th style="background:#1fa84a;color:#fff;white-space:nowrap">DESCRIPCION</th>
+          <th style="background:#2563eb;color:#fff;white-space:nowrap">FOLIO <span style="font-size:9px;opacity:0.8">(opcional)</span></th>
+          <th style="background:#2563eb;color:#fff;white-space:nowrap">PROVEEDOR <span style="font-size:9px;background:#ef4444;padding:1px 4px;border-radius:3px">*</span></th>
+          <th style="background:#2563eb;color:#fff;white-space:nowrap">CLAVE_AX</th>
+          <th style="background:#2563eb;color:#fff;white-space:nowrap">TIPO <span style="font-size:9px;background:#ef4444;padding:1px 4px;border-radius:3px">*</span></th>
+          <th style="background:#2563eb;color:#fff;white-space:nowrap">PROYECTO</th>
+          <th style="background:#2563eb;color:#fff;white-space:nowrap">PLANTA</th>
+          <th style="background:#2563eb;color:#fff;white-space:nowrap">FECHA_INICIO</th>
+          <th style="background:#2563eb;color:#fff;white-space:nowrap">FECHA_FIN</th>
+          <th style="background:#2563eb;color:#fff;white-space:nowrap">IMPORTE</th>
+          <th style="background:#2563eb;color:#fff;white-space:nowrap">MONEDA</th>
+          <th style="background:#2563eb;color:#fff;white-space:nowrap">AREA</th>
+          <th style="background:#2563eb;color:#fff;white-space:nowrap">DESCRIPCION</th>
           <th style="background:#0d6b2e;color:#fff;white-space:nowrap">CICLO <span style="font-size:9px;opacity:0.8">(opcional)</span></th>
           <th style="background:#0d6b2e;color:#fff;white-space:nowrap">ESTADO <span style="font-size:9px;opacity:0.8">(opcional)</span></th>
         </tr></thead>
@@ -3289,7 +3561,7 @@ initGlobalFileInput();
             <td>Clave AX del proveedor</td>
             <td>Ver valores válidos abajo</td>
             <td>Nombre del proyecto</td>
-            <td>Planta 1 / Planta 2 / Planta 3</td>
+            <td>Centro 1 / Centro 2 / Centro 3</td>
             <td>YYYY-MM-DD</td>
             <td>YYYY-MM-DD</td>
             <td>Número sin comas (ej: 150000). Vacío = Variable</td>
@@ -3299,9 +3571,9 @@ initGlobalFileInput();
             <td>ID alfanumérico del ciclo (ej: CICLO2526) — vacío = ciclo activo</td>
             <td>VIGENTE / VENCIDO — vacío = se calcula por fecha</td>
           </tr>
-          <tr><td></td><td>PROVEEDOR EJEMPLO</td><td>1009</td><td>RENTA DE EQUIPOS</td><td>Proyecto A</td><td>Planta 1</td><td>2024-01-15</td><td>2024-12-31</td><td>180000</td><td>MXN</td><td>Operaciones</td><td>Descripción del contrato</td><td>2425</td><td>VENCIDO</td></tr>
-          <tr><td></td><td>EMPRESA EJEMPLO SA DE CV</td><td>858</td><td>INMUEBLES</td><td>Proyecto A</td><td>Planta 1</td><td>2025-03-01</td><td>2026-11-30</td><td>95000</td><td>MXN</td><td>Administración</td><td>Renta de bodega almacén</td><td>2526</td><td>VIGENTE</td></tr>
-          <tr><td></td><td>TRANSPORTES EJEMPLO SA DE CV</td><td>652</td><td>SERVICIOS</td><td>General</td><td>Planta 1</td><td>2025-01-01</td><td></td><td></td><td>MXN</td><td>Operaciones</td><td>Sin fecha fin — queda Vigente/Variable</td><td>2526</td><td></td></tr>
+          <tr><td></td><td>PROVEEDOR EJEMPLO</td><td>1009</td><td>RENTA DE EQUIPOS</td><td>Proyecto A</td><td>Centro 1</td><td>2024-01-15</td><td>2024-12-31</td><td>180000</td><td>MXN</td><td>Operaciones</td><td>Descripción del contrato</td><td>2425</td><td>VENCIDO</td></tr>
+          <tr><td></td><td>EMPRESA EJEMPLO SA DE CV</td><td>858</td><td>INMUEBLES</td><td>Proyecto A</td><td>Centro 1</td><td>2025-03-01</td><td>2026-11-30</td><td>95000</td><td>MXN</td><td>Administración</td><td>Renta de bodega almacén</td><td>2526</td><td>VIGENTE</td></tr>
+          <tr><td></td><td>TRANSPORTES EJEMPLO SA DE CV</td><td>652</td><td>SERVICIOS</td><td>General</td><td>Centro 1</td><td>2025-01-01</td><td></td><td></td><td>MXN</td><td>Operaciones</td><td>Sin fecha fin — queda Vigente/Variable</td><td>2526</td><td></td></tr>
         </tbody>
       </table>
     </div>
@@ -3326,9 +3598,9 @@ function dlLayoutContratos(descargar) {
   if(!window.XLSX){ toast("Cargando Excel...","warn"); return; }
   // cols ya definido arriba
   const ejemplos = [
-    { FOLIO:"", PROVEEDOR:"PROVEEDOR EJEMPLO", CLAVE_AX:"1009", TIPO:"RENTA DE EQUIPOS", PROYECTO:"Proyecto A", PLANTA:"Planta 1", FECHA_INICIO:"2024-01-15", FECHA_FIN:"2024-12-31", IMPORTE:180000, MONEDA:"MXN", AREA:"Operaciones", DESCRIPCION:"Descripción del contrato", CICLO:"2425", ESTADO:"VENCIDO" },
-    { FOLIO:"", PROVEEDOR:"EMPRESA EJEMPLO SA DE CV", CLAVE_AX:"858", TIPO:"INMUEBLES", PROYECTO:"Proyecto A", PLANTA:"Planta 1", FECHA_INICIO:"2025-03-01", FECHA_FIN:"2026-11-30", IMPORTE:95000, MONEDA:"MXN", AREA:"Administración", DESCRIPCION:"Renta de bodega almacén", CICLO:"2526", ESTADO:"VIGENTE" },
-    { FOLIO:"", PROVEEDOR:"TRANSPORTES EJEMPLO SA DE CV", CLAVE_AX:"652", TIPO:"SERVICIOS", PROYECTO:"General", PLANTA:"Planta 1", FECHA_INICIO:"2025-01-01", FECHA_FIN:"", IMPORTE:"", MONEDA:"MXN", AREA:"Operaciones", DESCRIPCION:"Sin fecha fin - queda Variable/Vigente", CICLO:"2526", ESTADO:"" }
+    { FOLIO:"", PROVEEDOR:"PROVEEDOR EJEMPLO", CLAVE_AX:"1009", TIPO:"RENTA DE EQUIPOS", PROYECTO:"Proyecto A", PLANTA:"Centro 1", FECHA_INICIO:"2024-01-15", FECHA_FIN:"2024-12-31", IMPORTE:180000, MONEDA:"MXN", AREA:"Operaciones", DESCRIPCION:"Descripción del contrato", CICLO:"2425", ESTADO:"VENCIDO" },
+    { FOLIO:"", PROVEEDOR:"EMPRESA EJEMPLO SA DE CV", CLAVE_AX:"858", TIPO:"INMUEBLES", PROYECTO:"Proyecto A", PLANTA:"Centro 1", FECHA_INICIO:"2025-03-01", FECHA_FIN:"2026-11-30", IMPORTE:95000, MONEDA:"MXN", AREA:"Administración", DESCRIPCION:"Renta de bodega almacén", CICLO:"2526", ESTADO:"VIGENTE" },
+    { FOLIO:"", PROVEEDOR:"TRANSPORTES EJEMPLO SA DE CV", CLAVE_AX:"652", TIPO:"SERVICIOS", PROYECTO:"General", PLANTA:"Centro 1", FECHA_INICIO:"2025-01-01", FECHA_FIN:"", IMPORTE:"", MONEDA:"MXN", AREA:"Operaciones", DESCRIPCION:"Sin fecha fin - queda Variable/Vigente", CICLO:"2526", ESTADO:"" }
   ];
   const cols = ["FOLIO","PROVEEDOR","CLAVE_AX","TIPO","PROYECTO","PLANTA","FECHA_INICIO","FECHA_FIN","IMPORTE","MONEDA","AREA","DESCRIPCION","CICLO","ESTADO"];
   const ws = XLSX.utils.json_to_sheet(ejemplos, { header: cols });
